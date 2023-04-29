@@ -1,5 +1,5 @@
 # 'Google_test' is the subproject name
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.18.4)
 project(GoogleTest)
 enable_testing()
 
