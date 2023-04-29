@@ -1,9 +1,11 @@
 import subprocess
 from flask import Flask, request
+from flask_sslify import SSLify
 from flask_cors import CORS
 from flask_cors import cross_origin
 
 app = Flask(__name__)
+sslify = SSLify(app)
 cors = CORS(app)
 
 
@@ -32,4 +34,4 @@ def check_primality():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(ssl_context=('cert.pem', 'key.pem'))

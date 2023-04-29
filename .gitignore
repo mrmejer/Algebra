@@ -3,3 +3,5 @@
 /Algorithms/test/cmake-build-debug/
 /Algorithms/lib/cmake-build-debug/
 /.idea
+cert.pem
+key.pem
