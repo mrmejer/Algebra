@@ -1,0 +1,106 @@
+#include <gtest/gtest.h>
+#include "../lib/BigNum.h"
+
+// Demonstrate some basic assertions.
+TEST(Arithmetic, Addition)
+{
+    BigNum a(123);
+    BigNum b(123);
+    BigNum c = a + b;
+
+    BigNum EXP = 246;
+
+    EXPECT_EQ(c, EXP);
+}
+
+TEST(Arithmetic, Subtraction)
+{
+    BigNum a("1606938044258990275541962092341162602522202993782792835301376"); // 2^200
+    BigNum b(1);
+    b.resize(50);
+    BigNum c = a - b;
+
+    BigNum EXP("1606938044258990275541962092341162602522202993782792835301375");
+
+    EXPECT_TRUE(c == EXP);
+}
+
+TEST(Arithmetic, Subtraction2)
+{
+    BigNum a("738765982101824283583547016508470707307483135032511");
+    BigNum b("625451389065520134561075813645616565665136453110364");
+
+    BigNum c = a - b;
+
+    BigNum EXP("113314593036304149022471202862854141642346681922147");
+
+    EXPECT_TRUE(c == EXP);
+}
+
+TEST(Arithmetic, Subtraction3)
+{
+    BigNum a("4859849857420350234234");
+    BigNum b("4859849857069502256897");
+    a -= b;
+
+    BigNum EXP("350847977337");
+
+    EXPECT_TRUE(a == EXP);
+}
+
+TEST(Arithmetic, Inverse)
+{
+    BigNum a("151");
+
+    EXPECT_EQ(a.inv(140), BigNum("9230440893431549313549552265169023802144"));
+}
+
+TEST(Arithmetic, Modulo1)
+{
+    BigNum a("8954674329834857645713845248513658126234597534083145603164510345601465801375640816387561865164587634581345631845671386451803653454563475634658517345631451");
+    BigNum b("1111111111117653844848484444444444444453875984637460346000000000002398742958989");
+    a %= b;
+
+    BigNum EXP("282299793166521955514853578383150936349912139235096544523007807965643832303240");
+
+    EXPECT_TRUE(a == EXP);
+}
+
+TEST(Arithmetic, Modulo2)
+{
+    BigNum a("4859849857420350234234");
+    BigNum b("582482352321");
+    a %= b;
+
+    BigNum EXP("350847977337");
+
+    EXPECT_TRUE(a == EXP);
+}
+
+TEST(Arithmetic, Modulo3)
+{
+    BigNum a("285973333");
+    BigNum b("100000");
+    a %= b;
+
+    BigNum EXP("73333");
+
+    EXPECT_TRUE(a == EXP);
+}
+
+TEST(Arithmetic, DivisionByDivisor)
+{
+    BigNum a("438275923750273523407230523405235623052623");
+    BigNum b("151");
+
+    EXPECT_EQ(a / b, BigNum("2902489561260089558988281611955202801673"));
+}
+
+TEST(Arithmetic, DivisionByDivisor2)
+{
+    BigNum a("1000000014000000049");
+    BigNum b("1000000007");
+    a /= b;
+
+    EXPECT_EQ(a, BigNum("1000000007"));
+}
