@@ -11,7 +11,7 @@ cors = CORS(app)
 @cross_origin()
 def factor():
     data = request.get_data(as_text=True)
-    print("factor" + data + "\n")
+    print("factor " + data + "\n")
 
     output = subprocess.check_output(['Algorithms/cmake-build-debug/bin/Integer_factorization-pollards_rho'], input=data,
                                      text=True)
@@ -23,7 +23,7 @@ def factor():
 @cross_origin()
 def check_primality():
     data = request.get_data(as_text=True)
-    print("test" + data + "\n")
+    print("test " + data + "\n")
 
     output = subprocess.check_output(['Algorithms/cmake-build-debug/bin/Primality_test-miller_rabin'], input=data,
                                      text=True)
@@ -31,4 +31,5 @@ def check_primality():
     return output
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
