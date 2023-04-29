@@ -23,8 +23,10 @@ add_executable(non_member_bignum_functions_test non_member_bignum_functions_test
 target_link_libraries(non_member_bignum_functions_test gtest gtest_main)
 
 add_executable(all_tests
-        ../lib/BigNum.cpp
-        ../lib/BarretReducer.cpp
+        ../lib/BigNum.h ../lib/BigNum.cpp
+        ../lib/BarretReducer.h ../lib/BarretReducer.cpp
+        ../lib/miller_rabin_test.h ../lib/miller_rabin_test.cpp
+        ../lib/pollards_rho.h ../lib/pollards_rho.cpp
         logical_operators_test.cpp
         arithmetic_operators_test.cpp
         general_test.cpp
