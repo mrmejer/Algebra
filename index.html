@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>Raspberry Math</title>
+</head>
+<body>
+    <div id="mainContainer">
+        <div id="options">
+            <div class="option optionInactive" onclick="doPrimalityTest(event)">Primality testing</div>
+            <div class="option optionActive" onclick="doFactoring(event)">Integer factorization</div>
+        </div>
+        <div id="container">
+            <form>
+                <div id="form-content">
+                    <div class="label">Input:</div>
+                    <input id="inputNumber" type="text" placeholder="integer" onkeypress="return isDigit(event)"/>
+                    <button type="submit">factor</button>
+                </div>
+            </form>
+            <div class="label">Result:</div>
+            <div id="result">---</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

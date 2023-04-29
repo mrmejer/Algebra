@@ -12,6 +12,7 @@ add_executable(Main main.cpp
         lib/miller_rabin_test.h lib/miller_rabin_test.cpp
         lib/pollards_rho.h lib/pollards_rho.cpp
 )
+set_target_properties(Main PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_executable(Integer_factorization-pollards_rho integer_factorization-pollards_rho.cpp
         lib/BigNum.h lib/BigNum.cpp
@@ -19,6 +20,7 @@ add_executable(Integer_factorization-pollards_rho integer_factorization-pollards
         lib/miller_rabin_test.h lib/miller_rabin_test.cpp
         lib/pollards_rho.h lib/pollards_rho.cpp
 )
+set_target_properties(Integer_factorization-pollards_rho PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_executable(Primality_test-miller_rabin primality_test-miller_rabin.cpp
         lib/BigNum.h lib/BigNum.cpp
@@ -26,6 +28,7 @@ add_executable(Primality_test-miller_rabin primality_test-miller_rabin.cpp
         lib/miller_rabin_test.h lib/miller_rabin_test.cpp
         lib/pollards_rho.h lib/pollards_rho.cpp
 )
+set_target_properties(Primality_test-miller_rabin PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 include(FetchContent)
 FetchContent_Declare(

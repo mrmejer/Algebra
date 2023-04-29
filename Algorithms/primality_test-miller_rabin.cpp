@@ -7,6 +7,13 @@ int main()
 {
     BigNum n;
     cin >> n;
-    if(isPrime(n)) cout<<"Prime";
-    else cout<<"Composite";
+
+    if(n < 2) cout<<"Input must be at least 2";
+    else
+    {
+        if(isPrime(n)) cout<<"Prime";
+        else cout<<"Composite";
+    }
+
+    return 0;
 }

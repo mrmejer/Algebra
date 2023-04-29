@@ -127,7 +127,7 @@ string BigNum::binaryString() const
 
 string BigNum::decimalString() const
 {
-    if(*this == 1) return "0";
+    if(*this == 0) return "0";
     int decLen = 1;
     unsigned dec[length << 1];
     memset(dec, 0, length << 3);
