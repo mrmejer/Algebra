@@ -1,11 +1,9 @@
 import subprocess
 from flask import Flask, request
-from flask_sslify import SSLify
 from flask_cors import CORS
 from flask_cors import cross_origin
 
 app = Flask(__name__)
-sslify = SSLify(app)
 cors = CORS(app)
 
 
@@ -17,7 +15,7 @@ def factor():
 
     output = subprocess.check_output(['Algorithms/cmake-build-debug/bin/Integer_factorization-pollards_rho'], input=data,
                                      text=True)
-    print("out: " + output)
+    print("out:\n" + output)
     return output
 
 
@@ -29,9 +27,9 @@ def check_primality():
 
     output = subprocess.check_output(['Algorithms/cmake-build-debug/bin/Primality_test-miller_rabin'], input=data,
                                      text=True)
-    print("out: " + output)
+    print("out:\n" + output)
     return output
 
 
 if __name__ == '__main__':
-    app.run(ssl_context=('cert.pem', 'key.pem'))
+    app.run(host='0.0.0.0')

@@ -47,7 +47,7 @@ document.querySelector("form").addEventListener("submit", function(e) {
 
     const xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "https://192.168.178.227:5000/" + task, true);
+    xhr.open("POST", "http://192.168.178.206:5000/" + task, true);
     //xhr.open("POST", "https://localhost:5000/" + task, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
